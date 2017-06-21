@@ -1,0 +1,23 @@
+base: &base
+  adapter: postgresql
+  encoding: utf8
+  username: test
+  password: testdb
+  host: 127.0.0.1
+  pool: 5
+
+development:
+  <<: *base
+  database: referral_system_development
+
+test:
+  <<: *base
+  database: referral_system_test
+
+staging:
+  <<: *base
+  database: referral_system_staging
+
+production:
+  <<: *base
+  database: referral_system_production

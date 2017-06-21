@@ -1,0 +1,23 @@
+@mixin responsive-property($prop, $values) {
+  @if map-has-key($values, 'xs') {
+    #{$prop}: map-get($values, 'xs');
+  }
+
+  @if map-has-key($values, 'sm') {
+    @media (min-width: $screen-sm-min) {
+      #{$prop}: map-get($values, 'sm');
+    }
+  }
+
+  @if map-has-key($values, 'md') {
+    @media (min-width: $screen-md-min) {
+      #{$prop}: map-get($values, 'md');
+    }
+  }
+
+  @if map-has-key($values, 'lg') {
+    @media (min-width: $screen-lg-min) {
+      #{$prop}: map-get($values, 'lg');
+    }
+  }
+}
