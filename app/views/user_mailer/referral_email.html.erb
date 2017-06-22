@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+      .button {
+        display: block;
+        width: 115px;
+        height: 25px;
+        background: #4E9CAF;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <center>
+      <h1>Hi!</h1>
+      <h3>Welcome to Referral System</h3>
+      <p>
+        Signup with <%= @email %> to get Rs. 50
+      </p>
+      <%= link_to "Sign Up", new_user_registration_url , class: "button"%>
+    </center>
+  </body>
+</html>

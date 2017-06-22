@@ -6,12 +6,12 @@
 
       <div class="form-group">
         <%= f.label :name %>
-        <%= f.text_field :name, class: "form-control", autofocus: true %>
+        <%= f.text_field :name, class: "form-control", autofocus: true, required: true %>
       </div>
 
       <div class="form-group">
         <%= f.label :email %>
-        <%= f.email_field :email, class: "form-control", autocomplete: "off" %>
+        <%= f.email_field :email, class: "form-control", required: true%>
       </div>
 
       <div class="form-group">
@@ -21,7 +21,7 @@
 
       <div class="form-group">
         <%= f.label :age %>
-        <%= f.number_field :age, class: "form-control", autocomplete: "off" %>
+        <%= f.number_field :age, class: "form-control",min: 1, autocomplete: "off"%>
       </div>
 
       <div class="form-group">
@@ -29,12 +29,12 @@
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
-        <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
+        <%= f.password_field :password, class: "form-control", autocomplete: "off", required: true%>
       </div>
 
       <div class="form-group">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off", required: true %>
       </div>
 
       <div class="actions">
