@@ -24,4 +24,10 @@ module ReferHelper
     refered_user.update(amount: refered_user.amount + 50)
     present_user.update(referred: true)
   end
+
+  def generate_ref
+    if current_user.user_ref.blank?
+      User.update(user_ref: SecureRandom.hex(6).upcase)
+    end
+  end
 end

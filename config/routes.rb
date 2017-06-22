@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'refer#index'
   post '/refer', to: 'refer#create'
 
+  get '/history', to: 'refer#history'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

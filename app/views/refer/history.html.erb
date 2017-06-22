@@ -1,0 +1,35 @@
+<h3 class="element-spacer-bottom-20">History</h3>
+<div clas="row">
+  <% if user_signed_in? && !current_user.user_ref.blank?%>
+    <div class="col-md-3 pull-right">
+      <div class="well">
+        Referral code: <%= current_user.user_ref %>
+      </div>
+    </div>
+  <% end %>
+  <div class="col-md-12 table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Transaction</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @referrals.each do |refer| %>
+        <tr>
+          <td>Rs. 50</td>
+          <td>Refered <%= refer.referral_email %></td>
+        </tr>
+      <% end %>
+      <% if @refered %>
+        <tr>
+          <td>Rs. 50</td>
+          <td>Referral Signup</td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<br>

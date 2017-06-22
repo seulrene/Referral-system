@@ -19,6 +19,7 @@
           <li><%= link_to "Login", new_user_session_path %></li>
         <% else %>
           <li><p>Balance: <span class="fa fa-inr" aria-hidden="true"></span><%= current_user.amount %></p></li>
+          <li><%= link_to "History", history_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.name %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
