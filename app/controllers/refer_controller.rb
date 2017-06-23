@@ -25,7 +25,7 @@ class ReferController < ApplicationController
         flash[:sucess] = "Referred Successfully"
         redirect_to root_path
       else
-        flash[:danger] = "Email already referred"
+        flash[:danger] = "Problem with Email"
         redirect_to root_path
       end
     else
