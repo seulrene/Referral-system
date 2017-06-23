@@ -1,13 +1,44 @@
-<%= @id %>
-<div class="row">
-  <div class="col-md-6">
-    <h3 class="element-spacer-bottom-20">Refer a Friend to get <span class="fa fa-inr" aria-hidden="true"></span>50</h3>
-      <%= form_for(@referral, url: refer_path) do |f| %>
-        <div class="form-group">
-          <%= f.label :referral_email %>
-          <%= f.email_field :referral_email, class: "form-control", placeholder: "Enter Email"%>
+<div class="element-spacer-left-20">
+  <h3 class="element-spacer-bottom-20">History</h3>
+  <div clas="row">
+    <% if user_signed_in? && !current_user.user_ref.blank?%>
+      <div class="col-md-3">
+        <div class="well">
+          Referral code: <%= current_user.user_ref %>
         </div>
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-      <% end %>
+      </div>
+    <% end %>
+    <% if current_user.referred || @history.any? %>
+      <div class="col-md-12 table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Transaction</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+          <% if current_user.referred %>
+            <tr>
+              <td>Rs. 50</td>
+              <td>Sign up with Referral code</td>
+            </tr>
+          <% end %>
+          <% if @history.any? %>
+            <% @history.each do |refer| %>
+              <tr>
+                <td>Rs. 50</td>
+                <td>For Referring <%= refer.name %></td>
+              </tr>
+            <% end %>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    <% else %>
+    <div class="col-md-12">
+      <h5>No Account history Found</h5>
+    </div>
+    <% end %>
   </div>
 </div>

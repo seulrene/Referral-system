@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 20170622052917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "referrals", force: :cascade do |t|
-    t.string "referral_email"
-    t.boolean "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "user_id"
-    t.index ["user_id"], name: "index_referrals_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -40,8 +31,6 @@ ActiveRecord::Schema.define(version: 20170622052917) do
     t.string "name"
     t.string "gender"
     t.integer "age"
-    t.integer "total_referral", default: 3
-    t.integer "no_of_referrals", default: 0
     t.integer "amount", default: 0
     t.boolean "referred", default: false
     t.string "user_ref"
