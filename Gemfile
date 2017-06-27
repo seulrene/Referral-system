@@ -15,6 +15,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 gem 'rails_admin', '~> 1.2'
 gem 'devise'
+gem 'redis', '~> 3.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
