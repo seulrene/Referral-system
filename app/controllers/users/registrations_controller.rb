@@ -20,6 +20,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
             resource.update(amount: 50)
             resource.update(referred: true)
             update_amount(sign_up_params[:ref_code])
+            refered_user = User.where(user_ref: sign_up_params[:ref_code]).first
+            NotificationsChannel.broadcast_to(
+              "notifications_channel:#{refered_user.id}",
+              notification: 'Account credited with Rs. 50 as '+resource.name+' used your Referrer code'
+            )
           end
           set_flash_message! :notice, :signed_up
           sign_up(resource_name, resource)

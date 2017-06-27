@@ -11,8 +11,8 @@ App.notifications = App.cable.subscriptions.create "NotificationsChannel",
 
   createLine: (data) ->
     """
-    <p>#{data['notification']}</p>
+    <div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    #{data['notification']}
+    </div>
     """
-
-  notify: (notification)->
-    @perform 'notify', notification: notification
